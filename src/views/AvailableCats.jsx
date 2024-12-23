@@ -1,16 +1,19 @@
 import { useEffect, useState } from 'react';
 
 const availableCats = [
-  { name: 'Whiskers', age: '2',breed:'Sphynx' },
-  { name: 'Mittens', age: '2',breed:'Peterbald' },
-  { name: 'Shadow', age: '1',breed:'Birman' },
-  { name: 'Pumpkin', age: '3',breed:'Abyssinian' },
-  { name: 'Luna', age: '4',breed:'Persian' },
-  { name: 'Simba', age: '2',breed:'Siamese' },
+  { name: 'Whiskers', age: '2', breed: 'Sphynx' },
+  { name: 'Mittens', age: '2', breed: 'Peterbald' },
+  { name: 'Shadow', age: '1', breed: 'Birman' },
+  { name: 'Pumpkin', age: '3', breed: 'Abyssinian' },
+  { name: 'Luna', age: '4', breed: 'Persian' },
+  { name: 'Simba', age: '2', breed: 'Siamese' },
 ];
 
 export default function AvailableCats() {
   const [cats, setCats] = useState([]);
+  const [filteredCats, setFilteredCats] = useState([]);
+  const [breedFilter, setBreedFilter] = useState('');
+  const [nameFilter, setNameFilter] = useState('');
 
   useEffect(() => {
     // Fetch cat images from an API endpoint and assign it to the featuredCats list
@@ -23,6 +26,7 @@ export default function AvailableCats() {
         }));
 
         setCats(catsWithImages);
+        setFilteredCats(catsWithImages);
       } catch (error) {
         console.error('Error fetching cat images:', error);
       }
@@ -31,13 +35,41 @@ export default function AvailableCats() {
     fetchCatImages();
   }, []);
 
+  useEffect(() => {
+    // Filter cats by breed and name
+    const filtered = cats.filter(cat => 
+      (breedFilter === '' || cat.breed === breedFilter) &&
+      (nameFilter === '' || cat.name.toLowerCase().includes(nameFilter.toLowerCase()))
+    );
+    setFilteredCats(filtered);
+  }, [breedFilter, nameFilter, cats]);
+
   return (
     <section className="text-center mt-4">
       <h2>Available Cats</h2>
       <p>Meet our adorable cats looking for their forever home!</p>
 
+      <div className="filters mb-4">
+        <select value={breedFilter} onChange={(e) => setBreedFilter(e.target.value)} className="form-select">
+          <option value="">All Breeds</option>
+          <option value="Sphynx">Sphynx</option>
+          <option value="Peterbald">Peterbald</option>
+          <option value="Birman">Birman</option>
+          <option value="Abyssinian">Abyssinian</option>
+          <option value="Persian">Persian</option>
+          <option value="Siamese">Siamese</option>
+        </select>
+        <input
+          type="text"
+          value={nameFilter}
+          onChange={(e) => setNameFilter(e.target.value)}
+          placeholder="Search by name"
+          className="form-control mt-2"
+        />
+      </div>
+
       <div className="mt-2 row g-4 cats-container" id="cats-container">
-        {cats.map((cat, i) => (
+        {filteredCats.map((cat, i) => (
           <div key={i} className="col-md-4">
             <div className="cat-card">
               <img src={cat.image} alt={cat.name} className="img-fluid mb-2" style={{ borderRadius: '8px', height: '200px', objectFit: 'cover' }} />
@@ -53,3 +85,5 @@ export default function AvailableCats() {
     </section>
   );
 }
+
+
