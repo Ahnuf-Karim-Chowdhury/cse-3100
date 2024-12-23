@@ -21,6 +21,11 @@ const BaseLayout = () => {
                 Contact Us
               </Link>
             </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/about-us">
+                About Us
+              </Link>
+            </li>
           </ul>
         </nav>
       </header>
