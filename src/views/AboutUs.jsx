@@ -1,14 +1,56 @@
 import React from 'react';
 
-export default function AboutUs() {
+const AboutUs = () => {
   return (
-    <section className="about-us text-center mt-4">
-      <h2>About Us</h2>
-      <p>Welcome to Purrfect Adoption! We are dedicated to finding loving homes for our adorable cats. Our mission is to ensure that every cat gets the care and attention they deserve.</p>
-      <p>At Purrfect Adoption, we believe that every cat deserves a chance to find a forever home. Our team works tirelessly to rescue, rehabilitate, and rehome cats in need. We provide a safe and nurturing environment for our cats while they wait for their new families.</p>
-      <p>We are passionate about animal welfare and strive to educate the community about responsible pet ownership. Thank you for supporting our mission and helping us make a difference in the lives of these wonderful animals.</p>
-      <p>For more information, feel free to contact us or visit our adoption center. Together, we can create a better world for our feline friends!</p>
-    </section>
+    <div className="about-us text-start mt-4">
+      <div className="container">
+        <section className="mb-4">
+          <h2>Our mission</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas luc Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas luc Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas luc
+          </p>
+        </section>
+        <section className="mb-4">
+          <h2>Our history</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas luc Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas luc Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas luc
+          </p>
+        </section>
+        <section>
+          <h2>Our team</h2>
+          <div className="row g-4 cats-container" id="cats-container">
+            <div className="col-md-4">
+              <div className="cat-card">
+                <img src="path/to/image1.jpg" alt="Bob Doe" className="img-fluid mb-2" style={{ borderRadius: '8px', height: '200px', objectFit: 'cover' }} />
+                <div className="cat-info">
+                  <h3 className="h5 mb-1">Bob Doe</h3>
+                  <p className="mb-0">Director</p>
+                </div>
+              </div>
+            </div>
+            <div className="col-md-4">
+              <div className="cat-card">
+                <img src="path/to/image2.jpg" alt="Rob Doe" className="img-fluid mb-2" style={{ borderRadius: '8px', height: '200px', objectFit: 'cover' }} />
+                <div className="cat-info">
+                  <h3 className="h5 mb-1">Rob Doe</h3>
+                  <p className="mb-0">Director</p>
+                </div>
+              </div>
+            </div>
+            <div className="col-md-4">
+              <div className="cat-card">
+                <img src="path/to/image3.jpg" alt="Dob Doe" className="img-fluid mb-2" style={{ borderRadius: '8px', height: '200px', objectFit: 'cover' }} />
+                <div className="cat-info">
+                  <h3 className="h5 mb-1">Dob Doe</h3>
+                  <p className="mb-0">Director</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
   );
-}
+};
 
+export default AboutUs;

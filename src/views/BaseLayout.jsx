@@ -9,21 +9,26 @@ const BaseLayout = () => {
             Purrfect Adoption
           </Link>
         </h1>
-        <nav>
+        <nav className="d-flex justify-content-end">
           <ul className="nav">
+            <li className="nav-item">
+              <Link className="nav-link" to="/about-us">
+                About Us
+              </Link>
+            </li>
             <li className="nav-item">
               <Link className="nav-link" to="/available-cats">
                 Available Cats
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/contact-us">
-                Contact Us
+              <Link className="nav-link" to="#">
+                Donate
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/about-us">
-                About Us
+              <Link className="nav-link" to="/contact-us">
+                Contact Us
               </Link>
             </li>
           </ul>
@@ -40,4 +45,3 @@ const BaseLayout = () => {
 };
 
 export default BaseLayout;
-
