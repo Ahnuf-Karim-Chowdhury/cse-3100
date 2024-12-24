@@ -37,20 +37,19 @@ const ContactUs = () => {
       valid = false;
     }
 
-    if (!formData.phone) {
-      errors.phone = 'Please provide your Phone Number';
+    if (!formData.phone && !formData.email) {
+      errors.phone = 'Please provide either your Phone Number or E-mail Address';
+      errors.email = 'Please provide either your Phone Number or E-mail Address';
       valid = false;
-    } else if (!/^\d{11}$/.test(formData.phone)) {
-      errors.phone = 'Invalid Phone Number!';
-      valid = false;
-    }
-
-    if (!formData.email) {
-      errors.email = 'Please provide your E-mail Address';
-      valid = false;
-    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      errors.email = 'Invalid E-mail!';
-      valid = false;
+    } else {
+      if (formData.phone && !/^\d{11}$/.test(formData.phone)) {
+        errors.phone = 'Invalid Phone Number!';
+        valid = false;
+      }
+      if (formData.email && !/\S+@\S+\.\S+/.test(formData.email)) {
+        errors.email = 'Invalid E-mail!';
+        valid = false;
+      }
     }
 
     setErrors(errors);
@@ -86,14 +85,14 @@ const ContactUs = () => {
                 <label htmlFor="phone" className="form-label">
                   Phone
                 </label>
-                <input type="text" id="phone" name="phone" value={formData.phone} onChange={handleChange} className="form-control" inputMode="numeric" required />
+                <input type="text" id="phone" name="phone" value={formData.phone} onChange={handleChange} className="form-control" inputMode="numeric" />
                 {errors.phone && <div className="text-danger">{errors.phone}</div>}
               </div>
               <div className="mb-3">
                 <label htmlFor="email" className="form-label">
                   Email
                 </label>
-                <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} className="form-control" required />
+                <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} className="form-control" />
                 {errors.email && <div className="text-danger">{errors.email}</div>}
               </div>
               <button type="submit" className="btn btn-primary">
