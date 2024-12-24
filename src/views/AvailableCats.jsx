@@ -37,18 +37,13 @@ export default function AvailableCats() {
 
   useEffect(() => {
     // Filter cats by breed in real-time
-    const filtered = cats.filter(cat => 
-      (breedFilter === '' || cat.breed === breedFilter)
-    );
+    const filtered = cats.filter((cat) => breedFilter === '' || cat.breed === breedFilter);
     setFilteredCats(filtered);
   }, [breedFilter, cats]);
 
   const handleSearch = () => {
     // Filter cats by name when search button is clicked or Enter key is pressed
-    const filtered = cats.filter(cat => 
-      (breedFilter === '' || cat.breed === breedFilter) &&
-      (nameFilter === '' || cat.name.toLowerCase().includes(nameFilter.toLowerCase()))
-    );
+    const filtered = cats.filter((cat) => (breedFilter === '' || cat.breed === breedFilter) && (nameFilter === '' || cat.name.toLowerCase().includes(nameFilter.toLowerCase())));
     setFilteredCats(filtered);
   };
 
@@ -81,7 +76,9 @@ export default function AvailableCats() {
             className="form-control me-2"
             style={{ width: '200px' }}
           />
-          <button className="btn btn-primary" onClick={handleSearch}>Search</button>
+          <button className="btn btn-primary" onClick={handleSearch}>
+            Search
+          </button>
         </div>
       </div>
       <hr></hr>

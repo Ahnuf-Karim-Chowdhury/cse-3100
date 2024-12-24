@@ -7,13 +7,17 @@ const AboutUs = () => {
         <section className="mb-4">
           <h2>Our mission</h2>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas luc Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas luc Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas luc
+            At Purrfect Adoption, our mission is to provide loving homes for cats in need. We believe that every cat deserves a safe and caring environment where they can thrive. Our goal is to match
+            each cat with the perfect family, ensuring a lifetime of happiness and companionship for both the cat and their new owners. We are dedicated to promoting responsible pet ownership and
+            educating the community about the joys and responsibilities of adopting a cat.
           </p>
         </section>
         <section className="mb-4">
           <h2>Our history</h2>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas luc Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas luc Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas luc
+            Purrfect Adoption was founded in 2010 by a group of passionate cat lovers who wanted to make a difference in the lives of homeless cats. Over the years, we have grown from a small
+            volunteer-based organization to a well-established adoption center with a network of foster homes and dedicated volunteers. Our journey has been filled with countless success stories of
+            cats finding their forever homes. We are proud of the impact we have made and continue to strive towards a future where every cat has a loving home.
           </p>
         </section>
         <section>
